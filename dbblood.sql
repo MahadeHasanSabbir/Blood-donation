@@ -10,7 +10,7 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone = "+06:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -36,7 +36,7 @@ CREATE TABLE `tbdonner` (
   `sex` varchar(7) NOT NULL,
   `dnumber` varchar(12) NOT NULL,
   `demail` varchar(30) NOT NULL,
-  `daddress` varchar(40) NOT NULL,
+  `daddress` varchar(30) NOT NULL,
   `dblood` varchar(5) NOT NULL,
   `id` varchar(12) NOT NULL,
   `lddate` date NOT NULL
