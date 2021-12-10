@@ -3,7 +3,7 @@
 	$conect = mysqli_connect("localhost","root","","dbblood");
 
 	//sql query to find user information from database
-	$sqlquery = "SELECT * FROM `tbdonner` WHERE `tbdonner`.`id` = '$_GET[key]'";
+	$sqlquery = "SELECT * FROM `tbdonor` WHERE `tbdonor`.`id` = '$_GET[key]'";
 
 	//take data from database
 	$data = mysqli_query($conect, $sqlquery);
@@ -24,20 +24,20 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="subheader"> Donner information </div>
+			<div class="subheader"> Donor information </div>
 		</div>
 		<div class="container">
 			<?php
-				echo "<label> Donner ID</label>: ", $row["id"];
+				echo "<img src='pimage/$row[image]' width=150px alt=image>";
+				echo "<br/> <label> Donor ID</label>: ", $row["id"];
 				echo "<br/> <label> Name</label>: ", $row["dname"];
 				echo "<br/> <label> Gender</label>: ", $row["sex"];
 				echo "<br/> <label> Mobile</label>: ", $row["dnumber"];
 				echo "<br/> <label> E-mail</label>: ", $row["demail"];
 				echo "<br/> <label> Address</label>: ", $row["daddress"];
 				echo "<br/> <label> Blood Group</label>: ", $row["dblood"];
-				echo "<br/> <label> Last Donet</label>: ", $row["lddate"];
+				echo "<br/> <label> Last Donate</label>: ", $row["lddate"];
 			?>
 		</div>
 	</body>
-	
 </html>
