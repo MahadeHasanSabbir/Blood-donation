@@ -22,6 +22,7 @@
 				<meta charset="UTF-8"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 				<title> <?php echo $row1['dname'];?>'s Information update Form</title>
+				<link rel="stylesheet" type="text/css" href="http://localhost/blood-donation/style/style.css" title="style" />
 				<style>
 					body {margin:01px;padding:05px;border:02px;background:lightgray;line-height:30px;}
 					label {marin:01px;padding:05px;border:02px;display:inline-block;width:90px;font-weight:bold;}
@@ -30,40 +31,53 @@
 					input[type="file"] {border:01px;}
 					input[type="checkbox"] {margin:0px 0px 0px 110px;width:10px;}
 					input::placeholder {color:black;}
-					.container {margin:01px 2vw;padding:05px;border:01px;background:white;}
 					.subheader {margin:01px;padding:05px;border:02px;font-weight:bold;display:inline-block;font-size:20px;}
 					.button {margin:01px;padding:05px;border:01px solid;border-radius:08px;cursor:pointer;}
 				</style>
 			</head>
 			<body>
-				<div class="container">
-					<div class="subheader"> Information update form </div>
-					<form action="update.php" name="bgregform" onsubmit="return validate()" autocomplete="off" method="post"  enctype="multipart/form-data">
-						<label> Name </label>:  <input type="text" name="name" id="dname" value="<?php echo $row1['dname'];?>" required=""/><br/>
-						<label> Image </label>:  <input type="file" name="image" id="dimage" accept="image/x-png,image/gif,image/jpeg" value="<?php echo $row1['image'];?>" title="file name should not contain any space" required=""/> <br/>
-						<label> Gender </label>:
-							<input type="radio" name="sex" value="male" checked=""/> Male
-							<input type="radio" name="sex" value="female"/> Female <br/>
-						<label> Mobile </label>:  <input type="text" name="number" id="dnumber" value="<?php echo $row1['dnumber'];?>" required=""/> <br/>
-						<label> E-mail </label>:  <input type="text" name="email" id="dmail" value="<?php echo $row1['demail'];?>" required=""/> <br/>
-						<label> Address </label>:  <input type="text" name="address" id="daddress" value="<?php echo $row1['daddress'];?>" title="caracter limit 20" required=""/> <br/>
-						<label> Blood group</label>:
-						<select name="bloodgroup">
-							<option value="A+ve"> A+ve </option>
-							<option value="A-ve"> A-ve </option>
-							<option value="B+ve"> B+ve </option>
-							<option value="B-ve"> B-ve </option>
-							<option value="AB+ve"> AB+ve </option>
-							<option value="AB-ve"> AB-ve </option>
-							<option value="O+ve"> O+ve </option>
-							<option value="O-ve"> O-ve </option>
-						</select>
-						<br/>
-						<label> Last Donate </label>:  <input type="date" name="ldonate" id="ldd" value="<?php echo $row1['lddate']?>" required=""/> <br/>
-						<input type="checkbox" id="check" onchange="inputdisable()"/> check this box if you never donate blood before. <br/>
-						<label> Password </label>:  <input type="password" name="password" id="pass" value="<?php echo $row2['password']?>" title="alphanumaric and @,#,$,%,& are allow" required=""/> <br/>
-						<button type="Submit" value="Update" class="button"> Update </button> <br/>
-					</form>
+				<div id="main">
+					<div id="header">
+						<div id="logo">
+							<div id="logo_text">
+								<h1><a href="index.html">Blood-donation</a></h1>
+								<h2>Give blood, be a hero.</h2>
+							</div>
+						</div>
+					</div>
+					<div id="site_content">
+						<div class="subheader"> Information update form </div>
+						<form action="update.php" name="bgregform" onsubmit="return validate()" autocomplete="off" method="post"  enctype="multipart/form-data">
+							<label> Name </label>:  <input type="text" name="name" id="dname" value="<?php echo $row1['dname'];?>" required=""/><br/>
+							<label> Image </label>:  <input type="file" name="image" id="dimage" accept="image/x-png,image/gif,image/jpeg" value="<?php echo $row1['image'];?>" title="file name should not contain any space" required=""/> <br/>
+							<label> Gender </label>:
+								<input type="radio" name="sex" value="male" checked=""/> Male
+								<input type="radio" name="sex" value="female"/> Female <br/>
+							<label> Mobile </label>:  <input type="text" name="number" id="dnumber" value="<?php echo $row1['dnumber'];?>" required=""/> <br/>
+							<label> E-mail </label>:  <input type="text" name="email" id="dmail" value="<?php echo $row1['demail'];?>" required=""/> <br/>
+							<label> Address </label>:  <input type="text" name="address" id="daddress" value="<?php echo $row1['daddress'];?>" title="caracter limit 20" required=""/> <br/>
+							<label> Blood group</label>:
+							<select name="bloodgroup">
+								<option value="A+ve"> A+ve </option>
+								<option value="A-ve"> A-ve </option>
+								<option value="B+ve"> B+ve </option>
+								<option value="B-ve"> B-ve </option>
+								<option value="AB+ve"> AB+ve </option>
+								<option value="AB-ve"> AB-ve </option>
+								<option value="O+ve"> O+ve </option>
+								<option value="O-ve"> O-ve </option>
+							</select>
+							<br/>
+							<label> Last Donate </label>:  <input type="date" name="ldonate" id="ldd" value="<?php echo $row1['lddate']?>" required=""/> <br/>
+							<input type="checkbox" id="check" onchange="inputdisable()"/> check this box if you never donate blood before. <br/>
+							<label> Password </label>:  <input type="password" name="password" id="pass" value="<?php echo $row2['password']?>" title="alphanumaric and @,#,$,%,& are allow" required=""/> <br/>
+							<button type="Submit" value="Update" class="button"> Update </button> <br/>
+						</form>
+					</div>
+					<div id="content_footer"></div>
+					<div id="footer">
+						Copyright &copy; Blood Donation | <a href="http://www.html5webtemplates.co.uk">Design by html5webtemplates</a>
+					</div>
 				</div>
 				<script>
 					function inputdisable(){
