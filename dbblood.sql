@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2021 at 11:12 PM
+-- Generation Time: Dec 17, 2021 at 09:10 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -23,6 +23,26 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `dbblood` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `dbblood`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin` (
+  `id` varchar(12) NOT NULL,
+  `password` varchar(8) NOT NULL,
+  `passlast` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `password`, `passlast`) VALUES
+('admin', 'admin', '2021-12-01');
 
 -- --------------------------------------------------------
 
@@ -52,12 +72,18 @@ CREATE TABLE `tbdonor` (
   `daddress` varchar(40) NOT NULL,
   `dblood` varchar(5) NOT NULL,
   `id` varchar(12) NOT NULL,
-  `lddate` date NOT NULL
+  `lddate` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `donorlog`

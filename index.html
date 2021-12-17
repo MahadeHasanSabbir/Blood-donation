@@ -1,29 +1,88 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 	<head>
 		<meta charset="UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title> Index page </title>
+		<title>Blood donation</title>
+		<link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
 		<style>
-			body {margin:01px;padding:02px;border:02px;background:lightgray;line-height:30px;}
+			label {margin:01px;padding:05px;border:02px;width:155px;font-weight:bold;display:inline-block;}
+			input {margin:01px;padding:05px;border:01px solid;width:50vw}
+			input::placeholder {color:black;}
 			.container {margin:01px 2vw;padding:05px;border:01px;background:white;}
-			a {margin:01px;padding:02px;border-right:01px solid;text-decoration:none;font-weight:bold;}
+			.subheader {margin:01px;padding:05px;border:02px;font-weight:bold;display:block;font-size:20px;}
+			.button {margin:01px;padding:05px;border:01px;border-radius:08px;}
 		</style>
 	</head>
 	<body>
-		<header class="container">
-		
-		</header>
-		<nav class="container">
-			<a href="regdonor.html"> Registration </a>
-			<a href="./log/login.php"> Log in </a>
-			<a href="donorlist.php"> Donor list </a>
-			<a href="search.php"> Search donor </a>
-		</nav>
-		<section class="container">
-		</section>
-		<footer class="container">
-		
-		</footer>
+		<div id="main">
+			<div id="header">
+				<div id="logo">
+					<div id="logo_text">
+						<h1><a href="index.html">Blood-donation</a></h1>
+						<h2>Give blood, be a hero.</h2>
+					</div>
+				</div>
+				<div id="menubar">
+					<ul id="menu">
+						<li class="selected"><a href="index.html">Home</a></li>
+						<li><a href="regdonor.html">Become donor</a></li>
+						<li><a href="donorlist.php">Donor list</a></li>
+						<li><a href="search.php">Search donor</a></li>
+						<li><a href="contact.html">Contact</a></li>
+						<li><a href="./log/login.php">Donor log in</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="site_content">
+				<div class="sidebar">
+					<h3>Useful Links</h3>
+					<ul>
+						<li><a href="https://badhan.org/" target="_blank">Badhan</a></li>
+						<li><a href="https://www.sandhani.org/" target="_blank">Sandhani</a></li>
+					</ul>
+				</div>
+				<div id="content">
+					<div class="container">
+						<div class="subheader">Who can give blood</div>
+						<p>Most people can give blood. You can give blood if you:</p>
+						<ul>
+							<li>are fit and healthy</li>
+							<li>weigh between 50kg and 158kg</li>
+							<li>are aged between 17 and 66 (or 70 if you have given blood before)</li>
+							<li>are over 70 and have given a full blood donation in the last two years</li>
+						</ul>
+						<p>Men can give blood every 12 weeks and women can give blood every 16 weeks.<br/>The common reasons donors should check if they can give blood are:</p>
+						<ul>
+							<li>if you are receiving medical or hospital treatment</li>
+							<li>if you are taking medication</li>
+							<li>after having a tattoo or piercing</li>
+							<li>during and after pregnancy</li>
+							<li>if you feel ill</li>
+							<li>after receiving blood, blood products or organs</li>
+						</ul>
+					</div>
+					<div class="container">
+						<div class="subheader">BLOOD GROUPS </div>
+							<p>  blood group of any human being will mainly fall in any one of the following groups.</p>
+							<ul>
+								<li>A positive or A negative</li>
+								<li>B positive or B negative</li>
+								<li>O positive or O negative</li>
+								<li>AB positive or AB negative.</li>
+							</ul>
+							<p>A healthy diet helps ensure a successful blood donation, and also makes you feel better! Check out the following recommended foods to eat prior to your donation.</p>
+					</div>
+					<div class="container">
+						<div class="subheader">UNIVERSAL DONORS AND RECIPIENTS</div>
+						<p> The most common blood type is O, followed by type A. Type O individuals are often called "universal donors" since their blood can be transfused into persons with any blood type. Those with type AB blood are called "universal recipients" because they can receive blood of any type.</p>
+					</div>
+				</div>
+			</div>
+			<div id="content_footer"></div>
+			<div id="footer">
+				Copyright &copy; Blood Donation | <a href="http://www.html5webtemplates.co.uk">Design by html5webtemplates</a>
+			</div>
+		</div>
 	</body>
 </html>

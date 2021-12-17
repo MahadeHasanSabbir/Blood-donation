@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>colour_red</title>
+		<link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
+		<style>
+			label {margin:01px;padding:05px;border:02px;width:70px;font-weight:bold;display:inline-block;}
+			input {margin:01px;padding:05px;border:01px solid;width:40vw}
+			input::placeholder {color:black;}
+			.container {margin:01px 2vw;padding:05px;border:01px;background:white;}
+			.subheader {margin:01px;padding:05px;border:02px;font-weight:bold;display:block;font-size:20px;}
+			.button {margin:01px;padding:05px;border:01px;border-radius:08px;}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<div id="header">
+				<div id="logo">
+					<div id="logo_text">
+						<h1><a href="index.html">Blood-donation</a></h1>
+						<h2>Give blood, be a hero.</h2>
+					</div>
+				</div>
+				<div id="menubar">
+					<ul id="menu">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="regdonor.html">Become donor</a></li>
+						<li><a href="donorlist.php">Donor list</a></li>
+						<li><a href="search.php">Search donor</a></li>
+						<li class="selected"><a href="contact.html">Contact</a></li>
+						<li><a href="./log/login.php">Donor log in</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="site_content">
+				<div class="container">
+					<div class="subheader">Contact info</div>
+					<label>Phone</label>: +88******** <br/>
+					<label>Mobile</label>: +8801********* <br/>
+					<label>E-mail</label>: <a href="mailto:info@blooddonation.org">info@blooddonation.org</a> <br/>
+					<label>Fax</label>: +******
+				</div>
+				<div class="container">
+					<div class="subheader"> Ask any query or give feedback</div>
+					<form method="post">
+						<label>Name</label>: <input type="text" placeholder="Enter your name." required=""/> <br/>
+						<label>E-mail</label>: <input type="email" placeholder="Enter your email." required=""/> <br/>
+						<label>Comment</label>: <input type="text" placeholder="Enter your query or feedback."required=""/> <br/>
+						<button type="Submit" class="button" value="Submit">Submit</button>
+					</form>
+				</div>
+			</div>
+			<div id="content_footer"></div>
+			<div id="footer">
+				Copyright &copy; Blood Donation | <a href="http://www.html5webtemplates.co.uk">Design by html5webtemplates</a>
+			</div>
+		</div>
+	</body>
+</html>
