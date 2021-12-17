@@ -24,6 +24,7 @@
 					.subheader {margin:01px;padding:05px;border:02px;width:150px;font-weight:bold;display:inline-block;}
 					.button {margin:01px;padding:05px;border:01px;border-radius:08px;}
 					a {text-decoration:none;font-weight:bold;}
+					img {float:right;padding:05px;margin:05px;}
 				</style>
 			</head>
 			<body>
@@ -41,8 +42,8 @@
 				</div>
 				<div class="container">
 					<?php
-						echo "<img src='http://localhost/blood-donation/pimage/$row[image]' width='150px;' alt=image>";
-						echo "<br/> <label> Donor ID</label>: ", $row["id"];
+						echo "<img src='http://localhost/blood-donation/pimage/$row[image]' width='150px;' alt='$row[dname] picture'>";
+						echo "<label> Donor ID</label>: ", $row["id"];
 						echo "<br/> <label> Name</label>: ", $row["dname"];
 						echo "<br/> <label> Gender</label>: ", $row["sex"];
 						echo "<br/> <label> Mobile</label>: ", $row["dnumber"];
@@ -54,7 +55,7 @@
 				</div>
 				<script>
 					function permit1(){
-						if(!confirm("Sure to Edit?")){
+						if(!confirm("Sure to edit your information?")){
 							return false;
 						}
 						else{
@@ -62,7 +63,7 @@
 						}
 					}
 					function permit2(){
-						if(!confirm("Sure to Delete?")){
+						if(!confirm("Sure to delete your information?")){
 							return false;
 						}
 						else{
@@ -70,7 +71,7 @@
 						}
 					}
 					function permit3(){
-						if(!confirm("Sure to Log out?")){
+						if(!confirm("Do you want to Log out?")){
 							return false;
 						}
 						else{

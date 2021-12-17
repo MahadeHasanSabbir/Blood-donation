@@ -28,6 +28,7 @@
 					input {margin:01px;padding:05px;border:01px solid;width:50vw;}
 					input[type="radio"] {width:12px;}
 					input[type="file"] {border:01px;}
+					input[type="checkbox"] {margin:0px 0px 0px 110px;width:10px;}
 					input::placeholder {color:black;}
 					.container {margin:01px 2vw;padding:05px;border:01px;background:white;}
 					.subheader {margin:01px;padding:05px;border:02px;font-weight:bold;display:inline-block;font-size:20px;}
@@ -46,7 +47,7 @@
 						<label> Mobile </label>:  <input type="text" name="number" id="dnumber" value="<?php echo $row1['dnumber'];?>" required=""/> <br/>
 						<label> E-mail </label>:  <input type="text" name="email" id="dmail" value="<?php echo $row1['demail'];?>" required=""/> <br/>
 						<label> Address </label>:  <input type="text" name="address" id="daddress" value="<?php echo $row1['daddress'];?>" title="caracter limit 20" required=""/> <br/>
-						<label> Blood </label>:
+						<label> Blood group</label>:
 						<select name="bloodgroup">
 							<option value="A+ve"> A+ve </option>
 							<option value="A-ve"> A-ve </option>
@@ -59,11 +60,19 @@
 						</select>
 						<br/>
 						<label> Last Donate </label>:  <input type="date" name="ldonate" id="ldd" value="<?php echo $row1['lddate']?>" required=""/> <br/>
+						<input type="checkbox" id="check" onchange="inputdisable()"/> check this box if you never donate blood before. <br/>
 						<label> Password </label>:  <input type="password" name="password" id="pass" value="<?php echo $row2['password']?>" title="alphanumaric and @,#,$,%,& are allow" required=""/> <br/>
 						<button type="Submit" value="Update" class="button"> Update </button> <br/>
 					</form>
 				</div>
 				<script>
+					function inputdisable(){
+						var checkvalue = document.getElementById('check').checked;
+						if(checkvalue == true){
+							document.getElementById('ldd').disabled = "true";
+						}
+					}
+					
 					function validate(){
 						//Reguler Expressions
 						var namepattern = /^[a-z ]{3,30}$/i;
