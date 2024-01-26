@@ -6,8 +6,7 @@
 	//local variable
 	$id = $_POST['id'];
 	$password = $_POST['password'];
-	echo $id;
-	echo $password;
+	
 	//create a supper global variable
 	$_SESSION['id'] = $id;
 	

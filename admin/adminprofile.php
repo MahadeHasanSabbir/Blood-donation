@@ -42,6 +42,7 @@
 						<div id="menubar">
 							<ul id="menu">
 								<li class="selected"><a href="adminprofile.php">Home</a></li>
+								<li onclick="return apermit()"><a href="donorlist.php">All donor</a></li>
 							</ul>
 						</div>
 					</div>
@@ -50,9 +51,6 @@
 							<div class="subheader"> Admin panel </div>
 							<button class="button" onclick="return permit1()">
 								<?php echo "<a href='adminprofileupdate.php'> Edit admin info </a>"; ?>
-							</button>
-							<button class="button" onclick="return permit2()">
-								<?php echo "<a href='donorlist.php'> All Donor </a>"; ?>
 							</button>
 							<button class="button" style="float:right;" onclick="return permit3()">
 								<?php echo "<a href='logout.php'> Log out </a>"; ?>
@@ -64,38 +62,53 @@
 								echo "<br/> <label> Last password change</label>: ", $row["passlast"];
 							?>
 						</div>
+						<div class="container">
+							<div style="display:flex;justify-content:center;">
+								<?php
+								//sql query to find user information from database
+								$sqlquery = "SELECT * FROM `bgroup`";
+
+								//take data from database
+								$data1 = mysqli_query($conect, $sqlquery);
+								$data2 = mysqli_query($conect, $sqlquery);
+								$row1=mysqli_fetch_array($data1);
+								$row2=mysqli_fetch_array($data2);
+								?>
+								<table border="1">
+									<caption> Group wise registered Blood Donor information</caption>
+									<tbody>
+										<tr>
+											<th> Blood group </th>
+											<?php
+											do{
+												echo "<td> $row1[name] </td>";
+											}while($row1=mysqli_fetch_array($data1));
+											?>
+										</tr>
+										<tr>
+												<th> Total donor </th>
+											<?php
+											do{
+												if($row2['number'] == null){
+													echo "<td> N / A </td>";
+												}
+												else{
+													echo "<td> $row2[number] </td>";
+												}
+											}while($row2=mysqli_fetch_array($data2));
+											?>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
 					</div>
 					<div id="content_footer"></div>
 					<div id="footer">
 						Copyright &copy; Blood Donation | <a href="http://www.html5webtemplates.co.uk">Design by html5webtemplates</a>
 					</div>
 				</div>
-				<script>
-					function permit1(){
-						if(!confirm("Sure to edit your information?")){
-							return false;
-						}
-						else{
-							return true;
-						}
-					}
-					function permit2(){
-						if(!confirm("Sure to visit donor?")){
-							return false;
-						}
-						else{
-							return true;
-						}
-					}
-					function permit3(){
-						if(!confirm("Do you want to Log out?")){
-							return false;
-						}
-						else{
-							return true;
-						}
-					}
-				</script>
+				<script src="http://localhost/blood-donation/Script.js"></script>
 			</body>
 		</html>
 <?php

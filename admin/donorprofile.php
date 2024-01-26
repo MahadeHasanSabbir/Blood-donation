@@ -39,14 +39,20 @@
 								<h2>Give blood, be a hero.</h2>
 							</div>
 						</div>
+						<div id="menubar">
+							<ul id="menu">
+								<li><a href="adminprofile.php">Home</a></li>
+								<li class="selected"><a href="donorlist.php">All donor</a></li>
+							</ul>
+						</div>
 					</div>
 					<div id="site_content">
 						<div class="container">
 							<div class="subheader"> Donor information </div>
-							<button class="button" onclick="return permit1()">
+							<button class="button" onclick="return apermit1()">
 								<?php echo "<a href='profileupdate.php?key=$row[id]'> Edit </a>"; ?>
 							</button>
-							<button class="button" onclick="return permit2()">
+							<button class="button" onclick="return apermit2()">
 								<?php echo "<a href='deletedonor.php?key=$row[id]'> Delete </a>"; ?>
 							</button>
 						</div>
@@ -69,24 +75,7 @@
 						Copyright &copy; Blood Donation | <a href="http://www.html5webtemplates.co.uk">Design by html5webtemplates</a>
 					</div>
 				</div>
-				<script>
-					function permit1(){
-						if(!confirm("Sure to edit donor information?")){
-							return false;
-						}
-						else{
-							return true;
-						}
-					}
-					function permit2(){
-						if(!confirm("Sure to delete donor information?")){
-							return false;
-						}
-						else{
-							return true;
-						}
-					}
-				</script>
+				<script src="http://localhost/blood-donation/Script.js"></script>
 			</body>
 		</html>
 <?php

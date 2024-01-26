@@ -25,9 +25,9 @@
 					label {margin:01px;padding:05px;border:02px;width:90px;font-weight:bold;display:inline-block;}
 					.container {margin:01px 2vw;padding:05px;border:01px;background:white;}
 					.subheader {margin:01px;padding:05px;border:02px;font-weight:bold;display:inline-block;font-size:20px;}
-					.button {margin:01px;padding:05px;border:01px;border-radius:08px;}
+					.button {margin:01px;padding:05px;border:solid 01px gray;border-radius:08px;}
 					a {text-decoration:none;font-weight:bold;}
-					img {float:right;padding:05px;margin:05px;}
+					img {float:right;padding:05px;margin:05px;border-radius:10px;}
 				</style>
 			</head>
 			<body>
@@ -72,32 +72,7 @@
 						Copyright &copy; Blood Donation | <a href="http://www.html5webtemplates.co.uk">Design by html5webtemplates</a>
 					</div>
 				</div>
-				<script>
-					function permit1(){
-						if(!confirm("Sure to edit your information?")){
-							return false;
-						}
-						else{
-							return true;
-						}
-					}
-					function permit2(){
-						if(!confirm("Sure to delete your information?")){
-							return false;
-						}
-						else{
-							return true;
-						}
-					}
-					function permit3(){
-						if(!confirm("Do you want to Log out?")){
-							return false;
-						}
-						else{
-							return true;
-						}
-					}
-				</script>
+				<script src="http://localhost/blood-donation/Script.js"></script>
 			</body>
 		</html>
 <?php

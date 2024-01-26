@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2021 at 09:10 PM
+-- Generation Time: Jan 26, 2024 at 09:39 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -30,19 +30,57 @@ USE `dbblood`;
 -- Table structure for table `admin`
 --
 
-DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
   `id` varchar(12) NOT NULL,
   `password` varchar(8) NOT NULL,
-  `passlast` date NOT NULL
+  `passlast` date NOT NULL,
+  `tuser` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `password`, `passlast`) VALUES
-('admin', 'admin', '2021-12-01');
+INSERT INTO `admin` (`id`, `password`, `passlast`, `tuser`) VALUES
+('admin', 'admin', '2021-12-01', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bgroup`
+--
+
+CREATE TABLE `bgroup` (
+  `name` varchar(5) NOT NULL,
+  `number` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `bgroup`
+--
+
+INSERT INTO `bgroup` (`name`, `number`) VALUES
+('A+ve', NULL),
+('A-ve', NULL),
+('AB+ve', NULL),
+('AB-ve', NULL),
+('B+ve', NULL),
+('B-ve', NULL),
+('O+ve', NULL),
+('O-ve', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment`
+--
+
+CREATE TABLE `comment` (
+  `name` varchar(40) NOT NULL,
+  `email` varchar(65) NOT NULL,
+  `comment` varchar(2000) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -50,7 +88,6 @@ INSERT INTO `admin` (`id`, `password`, `passlast`) VALUES
 -- Table structure for table `donorlog`
 --
 
-DROP TABLE IF EXISTS `donorlog`;
 CREATE TABLE `donorlog` (
   `id` varchar(12) NOT NULL,
   `password` varchar(8) NOT NULL
@@ -62,7 +99,6 @@ CREATE TABLE `donorlog` (
 -- Table structure for table `tbdonor`
 --
 
-DROP TABLE IF EXISTS `tbdonor`;
 CREATE TABLE `tbdonor` (
   `dname` varchar(30) NOT NULL,
   `image` varchar(50) NOT NULL,
@@ -84,6 +120,18 @@ CREATE TABLE `tbdonor` (
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `bgroup`
+--
+ALTER TABLE `bgroup`
+  ADD UNIQUE KEY `blood` (`name`);
+
+--
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`time`);
 
 --
 -- Indexes for table `donorlog`

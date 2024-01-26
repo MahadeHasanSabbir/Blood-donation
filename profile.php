@@ -42,7 +42,7 @@
 						<li><a href="regdonor.html">Become donor</a></li>
 						<li><a href="donorlist.php">Donor list</a></li>
 						<li><a href="search.php">Search donor</a></li>
-						<li class="selected"><a href="contact.html">Contact</a></li>
+						<li class="selected"><a href="contact.php">Contact</a></li>
 						<li><a href="./log/login.php">Donor log in</a></li>
 					</ul>
 				</div>

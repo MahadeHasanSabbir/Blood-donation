@@ -7,7 +7,7 @@
 		$id = $_GET['key'];
 
 		//sql query to find user information from database
-		$sqlquery = "SELECT * FROM tbdonor WHERE tbdonor.id = '$_GET[key]'";
+		$sqlquery = "SELECT * FROM tbdonor WHERE tbdonor.id = '$id'";
 
 		//take data from database
 		$data = mysqli_query($conect, $sqlquery);
@@ -22,7 +22,7 @@
 			header('Expires: 0');
 			header('Cache-Control: must-revalidate');
 			header('Pragma: public');
-			header('Content-Length: ' . filesize('pimage/' . $row['picture']));
+			header('Content-Length: ' . filesize('pimage/' . $row['image']));
 			readfile('pimage/' . $row['image']);
 
 			exit;

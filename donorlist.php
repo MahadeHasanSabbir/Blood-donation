@@ -1,13 +1,3 @@
-<?php
-	//create connection with database
-	$conect = mysqli_connect("localhost","root","","dbblood");
-
-	//sql query to find user information from database
-	$sqlquery = "SELECT * FROM `tbdonor`";
-
-	//take data from database
-	$data = mysqli_query($conect, $sqlquery);
-?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -32,39 +22,59 @@
 						<li><a href="regdonor.html">Become donor</a></li>
 						<li class="selected"><a href="donorlist.php">Donor list</a></li>
 						<li><a href="search.php">Search donor</a></li>
-						<li><a href="contact.html">Contact</a></li>
+						<li><a href="contact.php">Contact</a></li>
 						<li><a href="./log/login.php">Donor log in</a></li>
 					</ul>
 				</div>
 			</div>
 			<div id="site_content">
-				<table border="1">
-					<caption> Our all registered Blood Donor information given here </caption>
-					<tbody>
-						<tr>
-							<th> Picture </th>
-							<th> Name </th>
-							<th> Mobile </th>
-							<th> Address </th>
-							<th> Blood Group </th>
-							<th> Last Donate </th>
-							<th> Profile </th>
-						</tr>
-						<?php
-						while($row=mysqli_fetch_array($data)){
-						echo "<tr>
-								<td> <img src='pimage/$row[image]' width='60px;' height='60px;' alt='Profile picture'/> </td>
-								<td> $row[dname] </td>
-								<td> $row[dnumber] </td>
-								<td> $row[daddress] </td>
-								<td> $row[dblood] </td>
-								<td> $row[lddate] </td>
-								<td> <a href='profile.php?key=$row[id]'> Full Profile </a> </td>
-							</tr>";
-						}
-						?>
-					</tbody>
-				</table>
+				<div style="display:flex;justify-content:center;">
+				<?php
+				//create connection with database
+				$conect = mysqli_connect("localhost","root","","dbblood");
+
+				//sql query to find user information from database
+				$sqlquery = "SELECT * FROM `tbdonor`";
+
+				//take data from database
+				$data = mysqli_query($conect, $sqlquery);
+				$row=mysqli_fetch_array($data);
+				if($row){
+				?>
+					<table border="1">
+						<caption> Our all registered Blood Donor information given here </caption>
+						<tbody>
+							<tr>
+								<th> Picture </th>
+								<th> Name </th>
+								<th> Mobile </th>
+								<th> Address </th>
+								<th> Blood Group </th>
+								<th> Last Donate </th>
+								<th> Profile </th>
+							</tr>
+							<?php
+							do{
+								echo "<tr>
+										<td> <img src='pimage/$row[image]' width='60px;' height='60px;' alt='Profile picture'/> </td>
+										<td> $row[dname] </td>
+										<td> $row[dnumber] </td>
+										<td> $row[daddress] </td>
+										<td> $row[dblood] </td>
+										<td> $row[lddate] </td>
+										<td> <a href='profile.php?key=$row[id]'> Full Profile </a> </td>
+									</tr>";
+							}while($row=mysqli_fetch_array($data));
+							?>
+						</tbody>
+					</table>
+				<?php
+				}
+				else{
+					echo "<h3 style='color:black;'> Sorry to inform you that the data of  registered donor did not added yet </h3>";
+				}
+				?>
+				</div>
 			</div>
 			<div id="content_footer"></div>
 			<div id="footer">

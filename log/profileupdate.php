@@ -49,25 +49,12 @@
 						<div class="subheader"> Information update form </div>
 						<form action="update.php" name="bgregform" onsubmit="return validate()" autocomplete="off" method="post"  enctype="multipart/form-data">
 							<label> Name </label>:  <input type="text" name="name" id="dname" value="<?php echo $row1['dname'];?>" required=""/><br/>
-							<label> Image </label>:  <input type="file" name="image" id="dimage" accept="image/x-png,image/gif,image/jpeg" value="<?php echo $row1['image'];?>" title="file name should not contain any space" required=""/> <br/>
 							<label> Gender </label>:
 								<input type="radio" name="sex" value="male" checked=""/> Male
 								<input type="radio" name="sex" value="female"/> Female <br/>
 							<label> Mobile </label>:  <input type="text" name="number" id="dnumber" value="<?php echo $row1['dnumber'];?>" required=""/> <br/>
 							<label> E-mail </label>:  <input type="text" name="email" id="dmail" value="<?php echo $row1['demail'];?>" required=""/> <br/>
 							<label> Address </label>:  <input type="text" name="address" id="daddress" value="<?php echo $row1['daddress'];?>" title="caracter limit 20" required=""/> <br/>
-							<label> Blood group</label>:
-							<select name="bloodgroup">
-								<option value="A+ve"> A+ve </option>
-								<option value="A-ve"> A-ve </option>
-								<option value="B+ve"> B+ve </option>
-								<option value="B-ve"> B-ve </option>
-								<option value="AB+ve"> AB+ve </option>
-								<option value="AB-ve"> AB-ve </option>
-								<option value="O+ve"> O+ve </option>
-								<option value="O-ve"> O-ve </option>
-							</select>
-							<br/>
 							<label> Last Donate </label>:  <input type="date" name="ldonate" id="ldd" value="<?php echo $row1['lddate']?>" required=""/> <br/>
 							<input type="checkbox" id="check" onchange="inputdisable()"/> check this box if you never donate blood before. <br/>
 							<label> Password </label>:  <input type="password" name="password" id="pass" value="<?php echo $row2['password']?>" title="alphanumaric and @,#,$,%,& are allow" required=""/> <br/>

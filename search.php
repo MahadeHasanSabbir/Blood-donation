@@ -16,8 +16,8 @@
 			input[type="checkbox"] {margin:0px 0px 0px 110px;width:10px;}
 			input::placeholder {color:black;}
 			.container {margin:01px 2vw;padding:05px;border:01px;}
-			.subheader {margin:01px;padding:05px;border:02px;font-weight:bold;display:inline-block;font-size:20px;}
-			.button {margin:01px;padding:05px;border:01px solid;border-radius:08px;cursor:pointer;}
+			.subheader {margin:01px;padding:05px;border:02px;font-weight:bold;font-size:20px;}
+			.button {margin:10px 05px;padding:05px;border:01px solid;border-radius:08px;cursor:pointer;}
 		</style>
 	</head>
 	<body>
@@ -36,7 +36,7 @@
 						<li><a href="regdonor.html">Become donor</a></li>
 						<li><a href="donorlist.php">Donor list</a></li>
 						<li class="selected"><a href="search.php">Search donor</a></li>
-						<li><a href="contact.html">Contact</a></li>
+						<li><a href="contact.php">Contact</a></li>
 						<li><a href="./log/login.php">Donor log in</a></li>
 					</ul>
 				</div>
@@ -57,33 +57,35 @@
 							<option value="O-ve"> O-ve </option>
 						</select> <br/>
 						<label> Location</label>: <input type="text" name="address" placeholder="Your thana or upzila.."/> <br/>
-							<button type="submit" value="Submit" class="button"> Submit </button>
+						<button type="submit" value="Submit" class="button"> Submit </button>
 					</form>
 				</div>
 				<div class="container">
-					<p style="text-align:center;display:block;" class="subheader"> Your desire blood donor information </p>
 					<?php
 						if(isset($_POST['bg'])){
 							//sql query to find user information from database
 							$sqlquery = "SELECT * FROM tbdonor WHERE tbdonor.dblood = '$_POST[bg]' AND tbdonor.daddress = '$_POST[address]'";
 							//take data from database
-							$data1 = mysqli_query($conect, $sqlquery);
-							$data2 = mysqli_query($conect, $sqlquery);
-							while($row=mysqli_fetch_array($data1)){
-								echo "
-									<div style='padding:05px;border:01px solid;display:inline-block;background:cornsilk;'>
-										<label> Name </label>: $row[dname] <br/>
-										<label> Mobile </label>: $row[dnumber] <br/>
-										<label> Address </label>: $row[daddress] <br/>
-										<label> Blood Group </label>: $row[dblood] <br/>
-										<label> Last Donate </label>: $row[lddate] <br/>
-										<label> Profile </label>:<a href='profile.php?key=$row[id]'> Full Profile </a>
-									</div>
-								";
+							$data = mysqli_query($conect, $sqlquery);
+							$row = mysqli_fetch_array($data);
+							if($row){
+								do{
+									echo "
+										<p style='text-align:center;display:block;' class='subheader'> Your desire blood donor information </p>
+										<div style='padding:05px;border:01px solid;display:inline-block;background:cornsilk;'>
+											<label> Name </label>: $row[dname] <br/>
+											<label> Mobile </label>: $row[dnumber] <br/>
+											<label> Address </label>: $row[daddress] <br/>
+											<label> Blood Group </label>: $row[dblood] <br/>
+											<label> Last Donate </label>: $row[lddate] <br/>
+											<label> Profile </label>:<a href='profile.php?key=$row[id]'> Full Profile </a>
+										</div>
+									";
+								}while($row=mysqli_fetch_array($data));
 							}
-							$row = mysqli_fetch_array($data2);
-							if(!$row){
-								echo "Sorry, We could not found donor near you.Please find out suitable donor from bellow.<br/>";
+							else{
+								echo "
+								<h4 style='text-align:center;display:block;font-weight:bold;color:#777'> Sorry, We could not found donor near you.Please find out suitable donor from bellow.</h4>";
 								//sql query to find user information from database
 								$sqlquery = "SELECT * FROM tbdonor WHERE tbdonor.dblood = '$_POST[bg]'";
 								//take data from database
