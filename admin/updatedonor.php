@@ -7,33 +7,16 @@
 		//local variable
 		$id = $_POST['did'];
 		$name = $_POST['name'];
-		$sex = $_POST['sex'];
 		$number = $_POST['number'];
 		$email = $_POST['email'];
 		$address = $_POST['address'];
 		$bg = $_POST['bloodgroup'];
 		$ldonate = $_POST['ldonate'];
 		$password = $_POST['password'];
-
-		echo "id",$id;
-		echo "name",$name;
-		echo "gender",$sex;
-		echo "mobile",$number;
-		echo "mail",$email;
-		echo "address",$address;
-		echo "bg",$bg;
-		echo "ldd",$ldonate;
-		echo "pass",$password;
 		
-		//process profile picture
-		$image = $_FILES['image']['name'];
-		$file_loc = $_FILES['image']['tmp_name'];
-		$folder="http://localhost/blood-donation/pimage/";
-		//method for upload picture to server folder
-		move_uploaded_file($file_loc,$folder.$image);
 		
 		//sql query to find user information from database
-		$sqlquery1 = "UPDATE tbdonor SET dname = '$name', image = '$image', sex = '$sex', dnumber = '$number', demail = '$email', daddress = '$address', dblood = '$bg', lddate = '$ldonate' WHERE tbdonor.id = '$id';";
+		$sqlquery1 = "UPDATE tbdonor SET dname = '$name', image = '$image', dnumber = '$number', demail = '$email', daddress = '$address', dblood = '$bg', lddate = '$ldonate' WHERE tbdonor.id = '$id';";
 		$sqlquery2 = "UPDATE donorlog SET password = '$password' WHERE donorlog.id = '$id';";
 
 		//method to update data from database

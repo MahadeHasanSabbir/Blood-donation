@@ -22,12 +22,13 @@
 				<link rel="stylesheet" type="text/css" href="http://localhost/blood-donation/style/style.css" title="style" />
 				<style>
 					body {margin:01px;padding:02px;border:02px;background:lightgray;line-height:30px;}
-					label {margin:01px;padding:05px;border:02px;width:155px;font-weight:bold;display:inline-block;}
+					.label {margin:01px;padding:05px;border:02px;width:155px;font-weight:bold;display:inline-block;}
 					.container {margin:01px 2vw;padding:05px;border:01px;background:white;}
 					.subheader {margin:01px;padding:05px;border:02px;width:150px;font-weight:bold;display:inline-block;font-size:20px;}
 					.button {margin:01px;padding:05px;border:01px;border-radius:08px;}
 					a {text-decoration:none;font-weight:bold;}
 					img {float:right;padding:05px;margin:05px;}
+					
 				</style>
 			</head>
 			<body>
@@ -58,8 +59,8 @@
 						</div>
 						<div class="container">
 							<?php
-								echo "<label> Admin</label>: ", $row["id"];
-								echo "<br/> <label> Last password change</label>: ", $row["passlast"];
+								echo "<label class='label'> Admin</label>: ", $row["id"];
+								echo "<br/> <label class='label'> Last password change</label>: ", $row["passlast"];
 							?>
 						</div>
 						<div class="container">
@@ -100,6 +101,32 @@
 										</tr>
 									</tbody>
 								</table>
+							</div>
+						</div>
+						<div class="container">
+							<p style='text-align:center;width:99%;display:block;' class='subheader'> Massages from user </p>
+							<div style="display:flex;justify-content:center;flex-wrap:wrap;">
+							<?php
+							$sqlquery = "SELECT * FROM comment";
+							//take data from database
+							$data = mysqli_query($conect, $sqlquery);
+							$row = mysqli_fetch_array($data);
+							if($row){
+								do{
+									echo "
+										<div style='margin:05px;padding:05px;border:01px solid;display:inline-block;background:cornsilk;width:40%;'>
+											<label style='font-weight:bold'> Name : </label> $row[name] <br/>
+											<label style='font-weight:bold'> email : </label> $row[email] <br/>
+											<label style='font-weight:bold'> massage : </label> <br/> ''$row[comment]'' <br/>
+											<label style='font-weight:bold'> Action : </label> <a href='deletedonor.php?time=$row[time]'> Delete </a>
+										</div>
+									";
+								}while($row=mysqli_fetch_array($data));
+							}
+							else{
+								echo "There is no massage from users.";
+							}
+							?>
 							</div>
 						</div>
 					</div>

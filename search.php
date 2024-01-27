@@ -69,10 +69,12 @@
 							$data = mysqli_query($conect, $sqlquery);
 							$row = mysqli_fetch_array($data);
 							if($row){
+								echo "
+									<p style='text-align:center;display:block;' class='subheader'> Your desire blood donor information </p>
+									<div style='display:flex;justify-content:center;flex-wrap:wrap;'>";
 								do{
 									echo "
-										<p style='text-align:center;display:block;' class='subheader'> Your desire blood donor information </p>
-										<div style='padding:05px;border:01px solid;display:inline-block;background:cornsilk;'>
+										<div style='margin:05px;padding:05px;border:01px solid;display:inline-block;background:cornsilk;'>
 											<label> Name </label>: $row[dname] <br/>
 											<label> Mobile </label>: $row[dnumber] <br/>
 											<label> Address </label>: $row[daddress] <br/>
@@ -82,17 +84,19 @@
 										</div>
 									";
 								}while($row=mysqli_fetch_array($data));
+								echo "</div>";
 							}
 							else{
 								echo "
-								<h4 style='text-align:center;display:block;font-weight:bold;color:#777'> Sorry, We could not found donor near you.Please find out suitable donor from bellow.</h4>";
+								<h4 style='text-align:center;display:block;font-weight:bold;color:#777'> Sorry, We could not found donor near you.Please find out suitable donor from bellow.</h4>
+								<div style='display:flex;justify-content:center;flex-wrap:wrap;'>";
 								//sql query to find user information from database
 								$sqlquery = "SELECT * FROM tbdonor WHERE tbdonor.dblood = '$_POST[bg]'";
 								//take data from database
 								$data = mysqli_query($conect, $sqlquery);
 								while($row=mysqli_fetch_array($data)){
 									echo "
-										<div style='padding:05px;border:01px solid;display:inline-block;background:cornsilk;'>
+										<div style='margin:05px;padding:05px;border:01px solid;display:inline-block;background:cornsilk;'>
 											<label> Name </label>: $row[dname] <br/>
 											<label> Mobile </label>: $row[dnumber] <br/>
 											<label> Address </label>: $row[daddress] <br/>
@@ -102,6 +106,7 @@
 										</div>
 									";
 								}
+								echo "</div>";
 							}
 						}
 					?>

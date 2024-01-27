@@ -7,7 +7,6 @@
 
 		//local variable
 		$name = $_POST['name'];
-		$sex = $_POST['sex'];
 		$number = $_POST['number'];
 		$email = $_POST['email'];
 		$address = $_POST['address'];
@@ -23,7 +22,7 @@
 		move_uploaded_file($file_loc,$folder.$image);
 		
 		//sql query to find user information from database
-		$sqlquery1 = "UPDATE tbdonor SET dname = '$name', image = '$image', sex = '$sex', dnumber = '$number', demail = '$email', daddress = '$address', dblood = '$bg', lddate = '$ldonate' WHERE tbdonor.id = '$id';";
+		$sqlquery1 = "UPDATE tbdonor SET dname = '$name', image = '$image', dnumber = '$number', demail = '$email', daddress = '$address', dblood = '$bg', lddate = '$ldonate' WHERE tbdonor.id = '$id';";
 		$sqlquery2 = "UPDATE donorlog SET password = '$password' WHERE donorlog.id = '$id';";
 
 		//method to update data from database

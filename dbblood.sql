@@ -2,8 +2,6 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 26, 2024 at 09:39 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -51,6 +49,7 @@ INSERT INTO `admin` (`id`, `password`, `passlast`, `tuser`) VALUES
 --
 
 CREATE TABLE `bgroup` (
+  `ID` int(11) NOT NULL,
   `name` varchar(5) NOT NULL,
   `number` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -59,15 +58,15 @@ CREATE TABLE `bgroup` (
 -- Dumping data for table `bgroup`
 --
 
-INSERT INTO `bgroup` (`name`, `number`) VALUES
-('A+ve', NULL),
-('A-ve', NULL),
-('AB+ve', NULL),
-('AB-ve', NULL),
-('B+ve', NULL),
-('B-ve', NULL),
-('O+ve', NULL),
-('O-ve', NULL);
+INSERT INTO `bgroup` (`ID`, `name`, `number`) VALUES
+(1, 'A+ve', NULL),
+(2, 'A-ve', NULL),
+(3, 'AB+ve', NULL),
+(4, 'AB-ve', NULL),
+(5, 'B+ve', NULL),
+(6, 'B-ve', NULL),
+(7, 'O+ve', NULL),
+(8, 'O-ve', NULL);
 
 -- --------------------------------------------------------
 
@@ -89,7 +88,7 @@ CREATE TABLE `comment` (
 --
 
 CREATE TABLE `donorlog` (
-  `id` varchar(12) NOT NULL,
+  `id` varchar(10) NOT NULL,
   `password` varchar(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -107,7 +106,7 @@ CREATE TABLE `tbdonor` (
   `demail` varchar(30) NOT NULL,
   `daddress` varchar(40) NOT NULL,
   `dblood` varchar(5) NOT NULL,
-  `id` varchar(12) NOT NULL,
+  `id` varchar(10) NOT NULL,
   `lddate` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

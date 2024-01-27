@@ -32,6 +32,7 @@
 					input[type="checkbox"] {margin:0px 0px 0px 110px;width:10px;}
 					input::placeholder {color:black;}
 					.subheader {margin:01px;padding:05px;border:02px;font-weight:bold;display:inline-block;font-size:20px;}
+					a {text-decoration:none;font-weight:bold;}
 					.button {margin:01px;padding:05px;border:01px solid;border-radius:08px;cursor:pointer;}
 				</style>
 			</head>
@@ -40,7 +41,7 @@
 					<div id="header">
 						<div id="logo">
 							<div id="logo_text">
-								<h1><a href="index.html">Blood-donation</a></h1>
+								<h1><a href="http://localhost/blood-donation/log/signprofile.php">Blood-donation</a></h1>
 								<h2>Give blood, be a hero.</h2>
 							</div>
 						</div>
@@ -49,9 +50,6 @@
 						<div class="subheader"> Information update form </div>
 						<form action="update.php" name="bgregform" onsubmit="return validate()" autocomplete="off" method="post"  enctype="multipart/form-data">
 							<label> Name </label>:  <input type="text" name="name" id="dname" value="<?php echo $row1['dname'];?>" required=""/><br/>
-							<label> Gender </label>:
-								<input type="radio" name="sex" value="male" checked=""/> Male
-								<input type="radio" name="sex" value="female"/> Female <br/>
 							<label> Mobile </label>:  <input type="text" name="number" id="dnumber" value="<?php echo $row1['dnumber'];?>" required=""/> <br/>
 							<label> E-mail </label>:  <input type="text" name="email" id="dmail" value="<?php echo $row1['demail'];?>" required=""/> <br/>
 							<label> Address </label>:  <input type="text" name="address" id="daddress" value="<?php echo $row1['daddress'];?>" title="caracter limit 20" required=""/> <br/>

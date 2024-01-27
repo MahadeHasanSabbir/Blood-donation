@@ -27,7 +27,7 @@
 			<div id="header">
 				<div id="logo">
 					<div id="logo_text">
-						<h1><a href="index.html">Blood-donation</a></h1>
+						<h1><a href="http://localhost/blood-donation/">Blood-donation</a></h1>
 						<h2>Give blood, be a hero.</h2>
 					</div>
 				</div>

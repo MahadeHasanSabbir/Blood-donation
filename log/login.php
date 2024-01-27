@@ -96,7 +96,7 @@
 		<script>
 			function validate(){
 				//Reguler Expressions
-				var idpattern = /^[0-9]{12}$/;
+				var idpattern = /^[0-9]{10}$/;
 				var passwordpattern = /^[a-z0-9\@\#\$\%\&]{4,8}$/i;
 				
 				//Values from user

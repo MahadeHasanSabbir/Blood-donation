@@ -35,22 +35,18 @@
 	}else if($id3 < 100){
 		$id3 = "0$id3";
 	}
-	$sql = "SELECT number FROM bgroup WHERE bgroup.name = '$bg'";
+	$sql = "SELECT * FROM bgroup WHERE bgroup.name = '$bg'";
 	$data = mysqli_query($conect, $sql);
 	$row = mysqli_fetch_array($data);
-	$id4 = $row['0'] + 1;
-	if($id4 < 10){
-		$id4 = "00$id4";
-	}else if($id4 < 100){
-		$id4 = "0$id4";
-	}
+	$id4 = $row['ID'];
+	$num= $row['number'] + 1;
 	$id = "$id1$id2$id4$id3";
 
 	//sql query for upload data to database
 	$sqlquery1 = "INSERT INTO tbdonor (dname, image, sex, dnumber, demail, daddress, dblood, id, lddate) VALUES ('$name', '$image', '$sex', '$number', '$email', '$address', '$bg', '$id', '$ldonate');";
 	$sqlquery2 = "INSERT INTO donorlog (id, password) VALUES ('$id', '$password');";
 	$sqlquery3 = "UPDATE admin SET tuser = '$id3' WHERE admin.id = 'admin';";
-	$sqlquery4 = "UPDATE bgroup SET number = '$id4' WHERE bgroup.name = '$bg';";
+	$sqlquery4 = "UPDATE bgroup SET number = '$num' WHERE bgroup.name = '$bg';";
 
 	//method for upload data to database
 	mysqli_query($conect, $sqlquery1);
