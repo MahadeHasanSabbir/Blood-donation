@@ -13,6 +13,7 @@
 	$data = mysqli_query($conect, $sqlquery2);
 	
 	session_destroy();
+	mysqli_close($conect);
 	
 	//mehtod to redirect this page to another page
 	header("location:http://localhost/blood-donation/donorlist.php");

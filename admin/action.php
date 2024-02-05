@@ -16,6 +16,7 @@
 	
 	//method for upload data to database
 	mysqli_query($conect, $sqlquery);
+	mysqli_close($conect);
 	
 	//mehtod to redirect this page to another page
 	header("location:http://localhost/blood-donation/admin/adminprofile.php");

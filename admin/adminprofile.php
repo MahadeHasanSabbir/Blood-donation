@@ -139,6 +139,7 @@
 			</body>
 		</html>
 <?php
+	mysqli_close($conect);
 	}
 	else{
 		header("location:http://localhost/blood-donation/admin/");

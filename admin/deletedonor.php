@@ -10,10 +10,11 @@
 			$sqlquery2 = "DELETE FROM dbblood.donorlog WHERE donorlog.id = '$_GET[key]'";
 
 			//take data from database
-			$data = mysqli_query($conect, $sqlquery1);
-			$data = mysqli_query($conect, $sqlquery2);
+			mysqli_query($conect, $sqlquery1);
+			mysqli_query($conect, $sqlquery2);
 			
 			//mehtod to redirect this page to another page
+			mysqli_close($conect);
 			header("location:http://localhost/blood-donation/admin/donorlist.php");
 		}
 		if(isset($_GET['time'])){
@@ -24,9 +25,10 @@
 			$sqlquery = "DELETE FROM dbblood.comment WHERE comment.time = '$_GET[time]'";
 
 			//take data from database
-			$data = mysqli_query($conect, $sqlquery);
+			mysqli_query($conect, $sqlquery);
 			
 			//mehtod to redirect this page to another page
+			mysqli_close($conect);
 			header("location:http://localhost/blood-donation/admin/adminprofile.php");
 		}
 	}

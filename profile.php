@@ -10,6 +10,7 @@
 
 	//convert 2D array to 1D array
 	$row = mysqli_fetch_array($data);
+	mysqli_close($conect);
 ?>
 <!DOCTYPE html>
 <html>

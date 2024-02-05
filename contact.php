@@ -8,7 +8,8 @@
 		<style>
 			label {margin:01px;padding:05px;border:02px;width:70px;font-weight:bold;display:inline-block;}
 			input {margin:01px;padding:05px;border:01px solid;width:40vw}
-			input::placeholder {color:black;}
+			textarea {margin:01px;padding:05px;border:01px solid;height:auto;width:40vw;resize:none;overflow:auto;}
+			input::placeholder, textarea::placeholder {color:black;font-family:times new roman;}
 			.container {margin:01px 2vw;padding:05px;border:01px;background:white;}
 			.subheader {margin:01px;padding:05px;border:02px;font-weight:bold;display:block;font-size:20px;}
 			.button {margin:08px 05px;padding:05px;border:solid 01px;border-radius:08px;}
@@ -59,15 +60,19 @@
 						
 						//method for upload data to database
 						mysqli_query($conect, $sqlquery);
+						mysqli_close($conect);
 						
 						//success massage
 						echo "<h4 style='color:green;margin:05px;'>Your massage send successfully. We will contact you within a day. </h4>";
 					}
 					?>
-					<form method="post">
-						<label>Name</label>: <input type="text" name="name" placeholder="Enter your name." required=""/> <br/>
-						<label>E-mail</label>: <input type="email" name="email" placeholder="Enter your email." required=""/> <br/>
-						<label>Comment</label>: <input type="text" name="comment" placeholder="Enter your query or feedback."required=""/> <br/>
+					<form method="post" autocomplete="off" style="display:block;font-family:times new roman;">
+						<label for="name">Name</label>: <input type="text" id="name" name="name" placeholder="Enter your name." required=""/> <br/>
+						<label for="email">E-mail</label>: <input type="email" id="email" name="email" placeholder="Enter your email." required=""/> <br/>
+						<label for="comment">Comment</label>: 
+						<textarea type="text" id="comment" name="comment" placeholder="Enter your query or feedback." required="">
+						</textarea>
+						<br/>
 						<button type="Submit" class="button" value="Submit">Submit</button>
 					</form>
 				</div>

@@ -87,28 +87,35 @@
 								echo "</div>";
 							}
 							else{
-								echo "
-								<h4 style='text-align:center;display:block;font-weight:bold;color:#777'> Sorry, We could not found donor near you.Please find out suitable donor from bellow.</h4>
-								<div style='display:flex;justify-content:center;flex-wrap:wrap;'>";
 								//sql query to find user information from database
 								$sqlquery = "SELECT * FROM tbdonor WHERE tbdonor.dblood = '$_POST[bg]'";
 								//take data from database
 								$data = mysqli_query($conect, $sqlquery);
-								while($row=mysqli_fetch_array($data)){
+								$row = mysqli_fetch_array($data);
+								if($row){
 									echo "
-										<div style='margin:05px;padding:05px;border:01px solid;display:inline-block;background:cornsilk;'>
-											<label> Name </label>: $row[dname] <br/>
-											<label> Mobile </label>: $row[dnumber] <br/>
-											<label> Address </label>: $row[daddress] <br/>
-											<label> Blood Group </label>: $row[dblood] <br/>
-											<label> Last Donate </label>: $row[lddate] <br/>
-											<label> Profile </label>:<a href='profile.php?key=$row[id]'> Full Profile </a>
-										</div>
-									";
+									<h4 style='text-align:center;display:block;font-weight:bold;color:#777;'> Sorry, We could not found donor near you.Please find out suitable donor from bellow.</h4>
+									<div style='display:flex;justify-content:center;flex-wrap:wrap;'>";
+									do{
+										echo "
+											<div style='margin:05px;padding:05px;border:01px solid;display:inline-block;background:cornsilk;'>
+												<label> Name </label>: $row[dname] <br/>
+												<label> Mobile </label>: $row[dnumber] <br/>
+												<label> Address </label>: $row[daddress] <br/>
+												<label> Blood Group </label>: $row[dblood] <br/>
+												<label> Last Donate </label>: $row[lddate] <br/>
+												<label> Profile </label>:<a href='profile.php?key=$row[id]'> Full Profile </a>
+											</div>
+										";
+									}while($row=mysqli_fetch_array($data));
+									echo "</div>";
 								}
-								echo "</div>";
+								else{
+									echo "<h4 style='text-align:center;display:block;font-weight:bold;color:#777;'> Sorry to inform you that the data of your desire donor did not added yet </h4>";
+								}
 							}
 						}
+						mysqli_close($conect);
 					?>
 				</div>
 			</div>

@@ -11,11 +11,11 @@
 		<style>
 			body {margin:01px;padding:02px;border:02px;background:lightgray;line-height:30px;}
 			label {margin:01px;padding:05px;border:02px;width:90px;font-weight:bold;display:inline-block;}
-			input {margin:01px;padding:05px;border:01px solid;width:50vw;}
+			input {margin:01px;padding:05px;border:01px solid;width:40vw;}
 			a {text-decoration:none;}
 			input::placeholder {color:black;}
 			.subheader {margin:01px;padding:05px;border:02px;font-weight:bold;display:inline-block;font-size:20px;}
-			.button {margin:01px;padding:05px;border:01px;border-radius:08px;cursor:pointer;font-weight:bold;}
+			.button {margin:08px 01px;padding:05px;border:01px;border-radius:08px;cursor:pointer;font-weight:bold;}
 			.msg {margin:01px;padding:05px;border:01px;color:red;}
 		</style>
 	</head>
@@ -64,6 +64,7 @@
 
 						//convert 2D array to 1D array
 						$row = mysqli_fetch_array($data);
+						mysqli_close($conect);
 					?>
 						<label> Donor ID </label>: <input type="text" id="uid" name="id" value="<?php echo $row['id'];?>" required=""/> <br/>
 						<label> Password </label>: <input type="password" id="pass" name="password" value="<?php echo $row['password'];?>" required=""/> <br/>

@@ -24,6 +24,7 @@
 		mysqli_query($conect, $sqlquery2);
 		
 		//mehtod to redirect this page to another page
+		mysqli_close($conect);
 		header("location:http://localhost/blood-donation/admin/donorprofile.php?key=$id");
 	}
 	else{

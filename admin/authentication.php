@@ -17,7 +17,7 @@
 
 	//convert 2D array to 1D array
 	$row = mysqli_fetch_array($data);
-	
+	mysqli_close($conect);
 
 	//check user info for login
 	if($id == $row['id']){

@@ -1,7 +1,5 @@
 <?php
 	session_start();
-	//create connection with database
-	$conect = mysqli_connect("localhost","root","","dbblood");
 ?>
 <!DOCTYPE html>
 <html>

@@ -69,6 +69,7 @@
 						</tbody>
 					</table>
 				<?php
+				mysqli_close($conect);
 				}
 				else{
 					echo "<h3 style='color:black;'> Sorry to inform you that the data of  registered donor did not added yet </h3>";

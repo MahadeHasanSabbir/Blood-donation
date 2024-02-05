@@ -55,5 +55,6 @@
 	mysqli_query($conect, $sqlquery4);
 	
 	//mehtod to redirect this page to another page
+	mysqli_close($conect);
 	header("location:http://localhost/blood-donation/log/login.php?key=$id");
 ?>
